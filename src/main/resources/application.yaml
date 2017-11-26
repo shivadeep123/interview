@@ -1,0 +1,49 @@
+---
+server: 
+  port: 8082
+ #context-path: /SpringBootDbserviceApplication
+ 
+security:
+  basic:
+    enabled: false        
+ 
+project:
+  name: spring-boot-emp-service
+  version: 0.1
+  description: boot-example default description
+  
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}       
+ 
+
+spring:
+    jpa:
+        database: MYSQL
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        hibernate:
+            ddl-auto: update
+            naming:
+             implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+             physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+              
+        show-sql: true    
+        
+    datasource:
+        url: jdbc:mysql://localhost/employee
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        
+logging:
+  level:
+    org:
+     springframework: DEBUG   
+     hibernate: DEBUG
+  file: example.log 
+  
+                   
+...
